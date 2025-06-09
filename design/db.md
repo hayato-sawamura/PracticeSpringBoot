@@ -20,13 +20,13 @@
 | Column | Type | Options |
 | ------ | ------ | ------ |
 | id     | SERIAL | NOT NULL|
-| user_id     | SERIAL | NOT NULL|
+| user_id     | INT | NOT NULL|
 | name     | VARCHAR(128) | NOT NULL|
 | catchphrase     | VARCHAR(128) | NOT NULL|
 | concept     | VARCHAR(128)  | NOT NULL|
 | image    | BYTEA | NOT NULL|
-| created_at     | DATETIME  | NOT NULL|
-| updated_at     | DATETIME  | NOT NULL|
+| created_at     | TIMESTAMP  | NOT NULL|
+| updated_at     | TIMESTAMP  | NOT NULL|
 
 ### Option
 - PRIMARY KEY(id)
@@ -37,9 +37,9 @@
 | Column | Type | Options |
 | ------ | ------ | ------ |
 | id     | SERIAL | NOT NULL|
-| prototype_id     | SERIAL | NOT NULL|
+| prototype_id     | INT | NOT NULL|
 | content    | TEXT | NULL|
-| created_at     | DATETIME  | NOT NULL|
+| created_at     | TIMESTAMP  | NOT NULL|
 
 ### Option
 - PRIMARY KEY(id)
@@ -50,5 +50,5 @@
 | Column | Type | Options |
 | ------ | ------ | ------ |
 | id     | SERIAL | NOT NULL|
-| user_id     | SERIAL | NOT NULL|
-| created_at     | DATETIME  | NOT NULL|
+| user_id     | INT | NOT NULL|
+| created_at     | TIMESTAMP  | NOT NULL|
