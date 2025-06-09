@@ -42,3 +42,30 @@ SELECT
     'Role_' || (i % 5)
 FROM generate_series(1, 10000) AS i;
 ```
+
+## カーディナリティ
+```sql
+SELECT <column>, COUNT(*) FROM users GROUP BY <column> ORDER BY COUNT(*) DESC LIMIT 10;
+
+-- カーディナリティが高い場合
+SELECT email, COUNT(*) FROM users GROUP BY email ORDER BY COUNT(*) DESC LIMIT 10;
+user_2990@example.com	1
+user_8524@example.com	1
+user_8450@example.com	1
+user_8455@example.com	1
+user_3052@example.com	1
+user_4630@example.com	1
+user_8731@example.com	1
+user_8057@example.com	1
+user_8750@example.com	1
+user_4175@example.com	1
+
+-- カーディナリティが低い場合
+SELECT role, COUNT(*) FROM users GROUP BY role ORDER BY COUNT(*) DESC LIMIT 10;
+Role_3	2000
+Role_2	2000
+Role_0	2000
+Role_1	2000
+Role_4	2000
+sawa_role	1
+```
